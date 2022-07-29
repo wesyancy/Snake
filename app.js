@@ -47,6 +47,11 @@ const RIGHT = "RIGHT"
 const UP = "UP"
 const DOWN = "DOWN"
 
+//NECESSARY VARIABLES
+const gameControls = document.getElementById("controls")
+const startButton = document.querySelector(".start-game")
+const resetButton = document.getElementById("reset")
+
 let gameState = {}
 let score = 0
 
@@ -208,13 +213,20 @@ function turnSnake(direction) {
     else if (direction === DOWN) gameState.snake.nextDirection = [1, 0]
 }
 
-const gameControls = document.getElementById("controls")
-const startButton = document.querySelector(".start-game")
+
 startButton.addEventListener("click", function () {
 
     changePhaseTo(PLAYING)
 
     gameControls.style.display = "grid"
+})
+
+resetButton.addEventListener("click", function () {
+    gameState.snake = {};
+    gameState.apple = [];
+    resetInitialState();
+    updateHTMLBoard();
+
 })
 
 gameControls.addEventListener("click", function (event) {

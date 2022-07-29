@@ -1,30 +1,43 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+2");
 
 * {
-  font-family: "Baloo 2", cursive;
-  color: #2078df;
+    font-family: "Baloo 2", cursive;
+    color: #2078df;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-  background-color: #1d1f20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1d1f20;
+}
+
+h3 {
+    text-align: center;
+    margin: 2vmin;
+}
+
+.start-game {
+    margin-top: 2vmin;
+    padding: 1vmin;
 }
 
 main {
-    display:grid;
+    display: grid;
     grid-template: repeat(12, 1fr) / repeat(12, 1fr);
     width: 40rem;
     height: 40rem;
+    margin-top: 10vmin;
+    margin-bottom: 3vmin;
     background-color: #2078df;
 }
 
 .cell {
     border: 0.5px solid #65a2e9;
-    
+
 }
 
 .cell.apple {
@@ -41,8 +54,8 @@ button {
 }
 
 #controls {
-    display: none;
-    grid-template: repeat(3, 1fr)/repeat(3,1fr)
+    display: grid;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr)
 }
 
 button.up {
@@ -59,7 +72,8 @@ button.right {
     grid-row: 2/3;
     grid-column: 3/4;
 }
+
 button.left {
     grid-row: 2/3;
-    grid-column:1/2;
+    grid-column: 1/2;
 }

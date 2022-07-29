@@ -105,19 +105,19 @@ function moveSnake() {
         changePhaseTo(GAME_OVER)
         document.getElementById('score').innerHTML = ("Your Final Score: " + gameState.score)
     }
-    else if(gameState.board[nextY][nextX] === "snake"){
+    else if (gameState.board[nextY][nextX] === "snake") {
         changePhaseTo(GAME_OVER)
         document.getElementById('score').innerHTML = ("Your Final Score: " + gameState.score)
 
     }
     else {
         if (gameState.board[nextY][nextX] === "apple") {
-            
+
             gameState.score++;
             document.getElementById('score').innerHTML = ("Score: " + gameState.score)
-            
+
             moveApple()
-            
+
         }
         else {
             gameState.snake.body.pop()

@@ -222,8 +222,7 @@ startButton.addEventListener("click", function () {
 })
 
 resetButton.addEventListener("click", function () {
-    gameState.snake = {};
-    gameState.apple = [];
+    
     resetInitialState();
     updateHTMLBoard();
 

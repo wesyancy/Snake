@@ -49,7 +49,7 @@ const DOWN = "DOWN"
 
 //NECESSARY VARIABLES
 const gameControls = document.getElementById("controls")
-const startButton = document.querySelector(".start-game")
+const startButton = document.getElementById("start-game")
 const resetButton = document.getElementById("reset")
 
 let gameState = {}
@@ -108,18 +108,18 @@ function moveSnake() {
     // Checking if you hit a wall
     if (nextY > 11 || nextY < 0 || nextX > 11 || nextX < 0) {
         changePhaseTo(GAME_OVER)
-        document.getElementById('score').innerHTML = ("Your Final Score: " + gameState.score)
+        document.getElementById('score').innerHTML = ("FINAL SCORE: " + gameState.score)
     }
     else if (gameState.board[nextY][nextX] === "snake") {
         changePhaseTo(GAME_OVER)
-        document.getElementById('score').innerHTML = ("Your Final Score: " + gameState.score)
+        document.getElementById('score').innerHTML = ("FINAL SCORE: " + gameState.score)
 
     }
     else {
         if (gameState.board[nextY][nextX] === "apple") {
 
             gameState.score++;
-            document.getElementById('score').innerHTML = ("Score: " + gameState.score)
+            document.getElementById('score').innerHTML = ("SCORE: " + gameState.score)
 
             moveApple()
 
@@ -134,7 +134,7 @@ function moveSnake() {
     gameState.board = newBoard()
     addSnakeToBoard()
     addAppleToBoard()
-    console.log(gameState.board)
+    // console.log(gameState.board)
 }
 
 function clearHTMLboard() {
@@ -221,11 +221,13 @@ startButton.addEventListener("click", function () {
     gameControls.style.display = "grid"
 })
 
-resetButton.addEventListener("click", function () {
-    
+resetButton.addEventListener("click", event => {
+    event.preventDefault;
     resetInitialState();
+    clearHTMLboard();
     updateHTMLBoard();
-
+    document.getElementById('score').innerHTML = ("SCORE: 0")
+    
 })
 
 gameControls.addEventListener("click", function (event) {
